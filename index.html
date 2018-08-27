@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap 4 &amp; WebPack Boilerplate</title>
+
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+
+    <nav class="nav-main navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">FBW X</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#html-and-css">HTML &amp; CSS</a>
+                            <a class="dropdown-item" href="#javascript">JavaScript</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#react">React</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div><!-- /container-->
+    </nav>
+
+    <div class="container">
+        <!-- CAROUSEL -->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://loremflickr.com/1800/600/baseball,action,sport/all?random=1" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://loremflickr.com/1800/600/football,sport,color/all?random=2" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://loremflickr.com/1800/600/icehockey,sport,color/all?random=3" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- JUMBOTRON -->
+
+        <section id="jumbotron">
+            <div class="jumbotron">
+                <h1>Hello, world!</h1>
+                <p>
+                    This is a jumbotron example, that is used for many websites today and shows that Bootstrap is successfully loadedd, using
+                    all components. Bootstrap feature will help you to create the desired layouts.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="https://getbootstrap.com/docs/4.1/components/jumbotron/" role="button">Learn
+                        more
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- BLOCKQUOTE -->
+
+        <blockquote class="blockquote" id="blockquote">
+            <p class="mb-0">
+                Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.
+            </p>
+            <footer class="blockquote-footer">Thomas Edison</footer>
+        </blockquote>
+
+        <!-- IMAGE CARDS -->
+
+        <section id="photos">
+            <h3>Photos</h3>
+
+            <div class="row album">
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=1" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=2" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=3" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=4" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=5" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=6" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=7" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="album-item">
+                        <img src="https://loremflickr.com/200/200/nature,landscapes/all?random=8" alt="Nature: 1" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </section><!-- /photos-->
+
+        <!-- PROGRESS BARS -->
+
+        <section id="progress-bars">
+            <h3>Progress Bars</h3>
+
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM -->
+
+        <section id="contact-form">
+            <h3>Contact Form</h3>
+
+            <form name="contactform" action="mailto:spam@dominik-hanke.de" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Your email">
+                </div>
+                <div class="form-group">
+                    <label for="email">Message</label>
+                    <textarea class="form-control" id="message" rows="6"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default">Send email</button>
+            </form>
+        </section>
+
+        <section id="drop-up-split">
+            <h3>DropUp Split Button</h3>
+
+            <div class="btn-group dropup">
+                <button type="button" class="btn btn-outline-secondary">Main Action</button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-panel">
+            <h3>Tab Panel</h3>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="false">Projects</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <p>
+                        This is a nice text about me...
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="project-tab">
+                    <p>
+                        These are my projects...
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dismissable-alerts">
+            <h3>Dismissable Alerts</h3>
+
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Success!</strong> Your updates have been saved.
+            </div>
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Error:</strong> Please fill in all required fields.
+            </div>
+        </section>
+    </div><!-- /container -->
+
+    <script src="dist/main.bundle.js"></script>
+</body>
+
+</html>
