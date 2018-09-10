@@ -5,102 +5,101 @@
 ----------------------------*/
 
 body {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 section {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 h3 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Navigation
 ----------------------------*/
 
 .nav-main {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /* Carousel
 ----------------------------*/
 
 #carousel {
-    .carousel-inner {
-        .carousel-item {
-            border-radius: 6px;
-        }
-
-        img {
-            border-radius: 6px;
-        }
+  .carousel-inner {
+    .carousel-item {
+      border-radius: 6px;
     }
+
+    img {
+      border-radius: 6px;
+    }
+  }
 }
 
 /* Jumbotron
 -----------------------------*/
 
 .jumbotron {
-    padding: 2rem;
-    border-radius: 6px;
+  padding: 2rem;
+  border-radius: 6px;
 }
 
 /* Blockquote
 -----------------------------*/
 
 #blockquote {
-    margin-top: 30px;
-    margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .blockquote {
-    margin-left: 20px;
-    padding-left: 20px;
-    border-left: 4px solid #efefef;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 4px solid #efefef;
 }
 
 /* Album
 -----------------------------*/
 
 #photos {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .album {
-    .album-item {
-        margin-bottom: 20px;
+  .album-item {
+    margin-bottom: 20px;
 
-        img {
-            width: 100%;
-        }
+    img {
+      width: 100%;
     }
+  }
 }
 
 /* Progress Bars
 -----------------------------*/
 
 .progress {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
 
 /* Contact Form
 -----------------------------*/
 
 #contact-form {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 label {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 /* Tab Panel
 -----------------------------*/
 
 .tab-content {
-    border: 1px solid #ddd;
-    border-top: none;
-    padding: 1rem;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 1rem;
 }
