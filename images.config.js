@@ -38,10 +38,19 @@ module.exports = (env, argv) => {
             fit: "cover",
 
             /*
-             * You can specify the postfix that is used for the filename of the new image.
-             * The width and height are used by default (e.g. slide-001-1920x1080.jpg).
+             * Define the position When using a fit of "cover" or "contain" (default: center).
+             *
+             *   left
+             *   right
+             *   top
+             *   bottom
+             *   center
+             *   left top
+             *   right top
+             *   left bottom
+             *   right bottom
              */
-            postfix: "-690x280"
+            position: "center"
           },
           {
             name: "Smartphone Resolution",
@@ -55,23 +64,27 @@ module.exports = (env, argv) => {
           {
             name: "Changed height only",
             height: 207
-          }
-        ]
-      },
-      // Slider Images 2
-      {
-        name: "Slider images 2",
-        source: "./dist/images/slides-two",
-        recursive: true,
-        sizes: [
+          },
           {
-            name: "Tablet Resolution",
-            width: 690,
-            height: 280,
-            postfix: "-690x280"
+            name: "Centered square",
+            width: 100,
+            height: 100
           }
         ]
       }
+      // Avatar Images
+      // {
+      //   name: "Avatar images",
+      //   source: "./dist/images/avatars",
+      //   recursive: true,
+      //   sizes: [
+      //     {
+      //       name: "Tablet Resolution",
+      //       width: 690,
+      //       height: 280
+      //     }
+      //   ]
+      // }
     ]
   };
 };
