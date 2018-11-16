@@ -1,0 +1,369 @@
+/**
+ * This script is used to convert images to different sizes, used for displaying them
+ * on a responsive website using the "srcset" attribute of the "<img>" element or
+ * the new "<picture>" element.
+ *
+ * Don't modify or delete this file, if you want to use the "npm run images" command.
+ */
+
+const glob = require("tiny-glob");
+const fs = require("fs");
+const path = require("path");
+const mime = require("mime-types");
+const sharp = require("sharp");
+const configPath = path.resolve("images.config.js");
+
+class ResponsiveImages {
+  constructor(config) {
+    this.mimeTypes = ["image/jpeg", "image/png"];
+    this.files = [];
+    this.config = config;
+    this.recreate = process.argv.includes("recreate");
+    this.remove = process.argv.includes("remove");
+
+    try {
+      this.run();
+    } catch (error) {
+      this.showError(error);
+    }
+  }
+
+  /**
+   * Fixes collection paths and calls runCollection() for each collection.
+   */
+  async run() {
+    const collectionCount = this.config.collections.length;
+
+    for (let i = 0; i < collectionCount; i++) {
+      const collection = this.config.collections[i];
+      collection.source = this.trailingSlah(collection.source);
+      collection.sourcePath = this.trailingSlah(
+        path.resolve(collection.source)
+      );
+
+      await this.runCollection(collection);
+    }
+  }
+
+  /**
+   * Runs all processes for a collection.
+   *
+   * @param {Object} collection
+   */
+  async runCollection(collection) {
+    this.showTitle(`Collection "${collection.name}"`);
+
+    try {
+      this.validateCollectionConfig(collection);
+    } catch (error) {
+      return this.showError(error);
+    }
+
+    let files = {};
+
+    try {
+      const unsortedFiles = await this.getFiles(collection);
+      files = this.filterFiles(unsortedFiles);
+    } catch (error) {
+      return this.showError(error);
+    }
+
+    const fileCount = files.original.length;
+
+    if (fileCount === 0) {
+      return this.log("No images found.");
+    }
+
+    this.log(
+      `${fileCount} original image ${fileCount < 2 ? "file" : "files"} found.\n`
+    );
+
+    if (this.remove || this.recreate) {
+      if (this.remove) {
+        this.log("Removing resized image formats.");
+        return this.removeFiles(files.resized);
+      }
+
+      this.log("Removing resized image formats.");
+      this.removeFiles(files.resized);
+      this.log("");
+    }
+
+    this.resizeImages(files.original, collection.sizes);
+  }
+
+  /**
+   * Validates a collection configuration and throws an error if parts are
+   * missing or invalid.
+   *
+   * @param {Object} collection
+   * @throws {Error}
+   */
+  validateCollectionConfig(collection) {
+    // Validate the source path
+    if (!this.isValidSource(collection.sourcePath)) {
+      throw new Error(
+        `The directory ${
+          collection.sourcePath
+        } does not exist or is not readable!`
+      );
+    }
+
+    // Validate size configurations
+    if (!collection["sizes"] || collection.sizes.length === 0) {
+      throw new Error("No sizes configured!");
+    }
+
+    collection.sizes.forEach((size, index) => {
+      if (!size["name"]) {
+        throw new Error(
+          `Missing configuration for a target width or height for sizes[${index}]!`
+        );
+      }
+
+      if (!size["width"] && !size["height"]) {
+        throw new Error(
+          `Missing configuration for a target width or height for size "${
+            size.name
+          }"!`
+        );
+      }
+    });
+  }
+
+  /**
+   * Checks if the source for a collection exists and is a
+   * valid directory.
+   *
+   * @param {String} source
+   * @return {Boolean}
+   */
+  isValidSource(source) {
+    let sourceExists = true;
+
+    try {
+      if (!fs.existsSync(source)) {
+        sourceExists = false;
+      }
+
+      const stat = fs.statSync(source);
+
+      if (!stat.isDirectory()) {
+        sourceExists = false;
+      }
+    } catch (error) {
+      sourceExists = false;
+    }
+
+    return sourceExists;
+  }
+
+  /**
+   * Reads all files of a collection, based on the "source" that is
+   * set to be used.
+   *
+   * @param {Object} collection
+   */
+  async getFiles(collection) {
+    let files = [];
+    let globPath = `${collection.source}${
+      collection.recursive ? "**/*.*" : "*.*"
+    }`;
+
+    try {
+      files = await glob(globPath, {
+        dot: false,
+        absolute: true,
+        filesOnly: true
+      });
+    } catch (error) {
+      switch (error.errno) {
+        case -13:
+          throw new Error(
+            `Permission denied for directory "${collection.path}"`
+          );
+        default:
+          throw error;
+      }
+    }
+
+    return files;
+  }
+
+  /**
+   * Filters the list of files by mime type, etc. and returns an object containing
+   * original files, resized ones and those which are ignored.
+   *
+   * {
+   *   original: [],
+   *   resized: [],
+   *   ignored: []
+   * }
+   *
+   * @param {Array} files
+   */
+  filterFiles(files) {
+    let filtered = {
+      original: [],
+      resized: [],
+      ignored: []
+    };
+
+    files.forEach(file => {
+      const mimeType = mime.lookup(file);
+
+      if (!this.mimeTypes.includes(mimeType)) {
+        return filtered.ignored.push(file);
+      }
+
+      if (/\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)) {
+        return filtered.resized.push(file);
+      }
+
+      filtered.original.push(file);
+    });
+
+    return filtered;
+  }
+
+  /**
+   * Removes all resized files (detected by filename).
+   *
+   * @param {Array} files
+   */
+  removeFiles(files) {
+    files.forEach(file => {
+      const mimeType = mime.lookup(file);
+
+      if (
+        this.mimeTypes.includes(mimeType) &&
+        /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)
+      ) {
+        this.log(`  => ${file}`);
+        fs.unlinkSync(file);
+      }
+    });
+  }
+
+  /**
+   * Runs the resizing process for all images of a collection,
+   * based on the configuration.
+   *
+   * @param {Object} collection
+   * @param {Array} files
+   */
+  async resizeImages(files, sizes) {
+    const fileCount = files.length;
+    const sizeCount = sizes.length;
+
+    for (let i = 0; i < fileCount; i++) {
+      const file = files[i];
+      this.log(`Resizing image ${i + 1} of ${fileCount} (${file})`);
+
+      for (let j = 0; j < sizeCount; j++) {
+        const size = sizes[j];
+
+        await this.resizeImage(file, size);
+      }
+
+      this.log("");
+    }
+  }
+
+  async resizeImage(file, config) {
+    const filename = this.addFilenamePostfix(file, config);
+    const targetFile = `${path.dirname(file)}/${filename}`;
+
+    this.log(`  => ${filename}`);
+
+    const resizeOptions = {
+      width: config["width"],
+      height: config["height"],
+      fit: config["fit"],
+      position: config["position"]
+    };
+
+    await sharp(file)
+      .resize(resizeOptions)
+      .toFile(targetFile);
+  }
+
+  addFilenamePostfix(file, config) {
+    let filename = path.basename(file);
+    const extension = path.extname(file);
+
+    if (config["width"] && config["height"]) {
+      filename = filename.replace(
+        RegExp(`${extension}$`),
+        `-${config["width"]}x${config["height"]}${extension}`
+      );
+    } else if (config["width"]) {
+      filename = filename.replace(
+        RegExp(`${extension}$`),
+        `-w${config["width"]}${extension}`
+      );
+    } else if (config["height"]) {
+      filename = filename.replace(
+        RegExp(`${extension}$`),
+        `-h${config["height"]}${extension}`
+      );
+    }
+
+    return filename;
+  }
+
+  /**
+   * Prints a title, using the # character to create some
+   * visual styling.
+   *
+   * @param {String} title
+   */
+  showTitle(title) {
+    const length = title.length;
+    const line = "#".repeat(length + 4) + "\n";
+    const output = [line, `# ${title} #\n`, line].join("");
+
+    this.log(output);
+  }
+
+  /**
+   * Displays an error in a formatted way.
+   *
+   * @param {Error} error
+   */
+  showError(error) {
+    this.log(`### ERROR: ${error.message}\n`);
+  }
+
+  /**
+   * Uses console.log() or later may be a debugging service, etc.
+   * to log information.
+   *
+   * @param  {...any} args
+   */
+  log(...args) {
+    console.log(...args);
+  }
+
+  /**
+   * Adds a trailing slash to the end of a given path, if it is missing.
+   *
+   * @param {String} path
+   */
+  trailingSlah(path) {
+    if (!/\/$/.test(path)) {
+      path += "/";
+    }
+
+    return path;
+  }
+}
+
+if (fs.existsSync(configPath)) {
+  const config = require(configPath)();
+  new ResponsiveImages(config);
+} else {
+  console.log(
+    `ERROR: Missing config file "images.config.js" in main directory!`
+  );
+}
