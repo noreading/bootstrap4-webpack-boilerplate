@@ -88,7 +88,7 @@ Run the command `npm run dev` or `yarn dev` to run webpack in `development` mode
 
 ### What is it?
 
-This boilerplate includes a tool to resize images based on a configuration file, to get rid of the hazzle to care about the responsive image sizes manually. One of the benefits of this process is that it works on all major operating systems, without the need to do any manual installations.
+This boilerplate includes a command to resize images based on a configuration file, to get rid of the hassle to care about the responsive image sizes manually. One of the benefits of this process is that it works on all major operating systems, without the need to do any manual installations.
 
 If you want to use the resizing feature, please edit the file `images.config.js` in the root directory and change all settings to your needs. You can add multiple collections with different configurations for greatest flexibility.
 
@@ -98,11 +98,20 @@ Once the config file is set, you can run the resizing command using npm.
 npm run images
 ```
 
+---
+
+You need more options?
+
+The [sharp](https://www.npmjs.com/package/sharp) npm package is used to resize the images, so more options and resizing features might get added to the configuration in the future. Contributions are always welcome, as I've got a limited amount of free time to work on projects like this.
+
+---
+
 ### Can I recreate all images?
 
 Yes you can! If you want to recreate the responsive versions of your files, because you changed the configuration, you can add "recreate" as an optional argument to the npm command.
 
-**Important:**  
+**Important:**
+
 The recreation process will remove all images it detects as being resized by their filename. If you use other tools for your images, this might lead to false positives, so please backup your files before you run this.
 
 ```bash
