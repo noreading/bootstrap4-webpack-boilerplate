@@ -203,25 +203,19 @@ Each size has the following options.
   </tbody>
 </table>
 
-### Can I recreate all images?
+### The Command Line Arguments
 
-Yes you can! If you want to recreate the responsive versions of your files, because you changed the configuration, you can add "recreate" as an optional argument to the npm command.
+The resizing command supports different arguments to remove resized images, recreate all images, etc.
 
-**Important:**
-
-The recreation process will remove all images it detects as being resized by their filename. If you use other tools for your images, this might lead to false positives, so please backup your files before you run this.
-
-```bash
-npm run images recreate
-```
-
-### Can I remove the generated images?
-
-Yes, you can! If you don't like the images that have been generated, you can add "remove" as an argument to the npm command.
+| Command                 | Description                                                  |
+| :---------------------- | :----------------------------------------------------------- |
+| npm run images          | Creates all resized versions of a file that are missing      |
+| npm run images recreate | Removes the resized versions of all files and recreates them |
+| npm run remove          | Removes the resized versions of all files                    |
 
 **Important:**
 
-The recreation process will remove all images it detects as being resized by their filename. If you use other tools for your images, this might lead to false positives, so please backup your files before you run this.
+The recreation and removal arguments will force the command to remove all images it detects as being resized versions (by their filename). If you use other tools for your images that add postfixes to the filenames, this might lead to false positives, so please backup your files before you run this.
 
 ```bash
 npm run images remove
