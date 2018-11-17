@@ -127,6 +127,80 @@ The [sharp](https://www.npmjs.com/package/sharp) npm package is used to resize t
 
 ---
 
+### The Configuration
+
+The responsive image configuration is saved in the `images.config.js` file, located in the root directory of the project.
+
+#### Collections
+
+The configuration is split into **collections** which include a set of configuration options to resize images. This allows you to define different resizing rules for multiple directories.
+
+Each collection has the following options.
+
+| Option    | Description                                                        | Required | Default |
+| :-------- | :----------------------------------------------------------------- | :------- | :------ |
+| name      | The name of the collection, to identify it in error messages, etc. | yes      | -       |
+| source    | The source directory of the image files that should get resized.   | yes      | -       |
+| recursive | Resize images in subdirectories, too?                              | no       | true    |
+| sizes     | The configurations for image sizes that get created.               | yes      | -       |
+
+##### Sizes
+
+Each collection has the option "sizes" which includes a set of configurations for different image sizes that will be generated. Width and height are optional, if at least one of them is set.
+
+Each size has the following options.
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">name</td>
+      <td valign="top">{string}</td>
+      <td valign="top">The name of the collection, to identify it in error messages, etc.</td>
+      <td valign="top">yes</td>
+      <td valign="top">-</td>
+    </tr>
+    <tr>
+      <td valign="top">width</td>
+      <td valign="top">{number}</td>
+      <td valign="top">The width of the resized image.</td>
+      <td valign="top">no</td>
+      <td valign="top">-</td>
+    </tr>
+    <tr>
+      <td valign="top">height</td>
+      <td valign="top">{number}</td>
+      <td valign="top">The height of the resized image.</td>
+      <td valign="top">no</td>
+      <td valign="top">-</td>
+    </tr>
+    <tr>
+      <td valign="top">fit</td>
+      <td valign="top">{string}</td>
+      <td valign="top">The method by which the image should fit.<br /><br />
+        <code>cover</code><br />Crop to cover both provided dimensions.<br /><br /><code>contain</code><br>Embed within both provided dimensions.<br /><br /><code>file</code><br />Ignore the aspect ratio of the input and stretch to both provided dimensions.<br /><br /><code>inside</code><br />Preserving aspect ratio, resize the image to be as large as possible while ensuring its dimensions are less than or equal to both those specified.<br /><br /><code>outside</code><br />Preserving aspect ratio, resize the image to be as small as possible while ensuring its dimensions are greater than or equal to both those specified.
+      </td>
+      <td valign="top">no</td>
+      <td valign="top">cover</td>
+    </tr>
+    <tr>
+      <td valign="top">position</td>
+      <td valign="top">{string}</td>
+      <td valign="top">The position When using a fit of "cover" or "contain"<br /><br /><code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>, <code>center</code>, <code>left top</code>, <code>right top</code>, <code>left bottom</code>, <code>right bottom</code></td>
+      <td valign="top">no</td>
+      <td valign="top">center</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Can I recreate all images?
 
 Yes you can! If you want to recreate the responsive versions of your files, because you changed the configuration, you can add "recreate" as an optional argument to the npm command.

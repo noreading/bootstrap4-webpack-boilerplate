@@ -165,7 +165,7 @@ class ResponsiveImages {
    */
   async getFiles(collection) {
     let files = [];
-    let globPath = `${collection.source}${collection.recursive ? "**/*.*" : "*.*"}`;
+    let globPath = `${collection.source}${collection["recursive"] ? "**/*.*" : "*.*"}`;
 
     try {
       files = await glob(globPath, {
