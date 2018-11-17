@@ -92,11 +92,23 @@ This boilerplate includes a command to resize images based on a configuration fi
 
 If you want to use the resizing feature, please edit the file `images.config.js` in the root directory and change all settings to your needs. You can add multiple collections with different configurations for greatest flexibility.
 
-Once the config file is set, you can run the resizing command using npm.
+In order for this command to work properly you need to have _"clean"_ filenames for your images, that don't match the patterns used to create the resized filenames automatically. The filenames get a postfix, based on the resizing settings for the images width and height.
 
-```bash
-npm run images
-```
+Filenames, that will be recognized as original images, are:
+
+- my-image.jpg
+- my-image-is-fancy.jpg
+- my-image-400x200-tablet.jpg
+
+Filenames, that will **not** be recognized as original images, are:
+
+| Filename               | Description                            | Pattern                                 |
+| :--------------------- | :------------------------------------- | :-------------------------------------- |
+| your-image-w200.jpg    | Resized using a fixed width only       | {filename}-w{width}.{extension}         |
+| your-image-h400.jpg    | Resized using a fixed height only      | {filename}-h{height}.{extension}        |
+| your-image-200x400.jpg | Resized using a fixed width and height | {filename}-{width}x{height}.{extension} |
+
+You can use a [test tool](https://regex101.com/r/7Nh1QR/5) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field.
 
 ---
 
@@ -116,6 +128,18 @@ The recreation process will remove all images it detects as being resized by the
 
 ```bash
 npm run images recreate
+```
+
+### Can I remove the generated images?
+
+Yes, you can! If you don't like the images that have been generated, you can add "remove" as an argument to the npm command.
+
+**Important:**
+
+The recreation process will remove all images it detects as being resized by their filename. If you use other tools for your images, this might lead to false positives, so please backup your files before you run this.
+
+```bash
+npm run images remove
 ```
 
 ## Placeholder Images
