@@ -51,11 +51,15 @@ class ResponsiveImages {
   async runCollection(collection) {
     this.showTitle(`Collection "${collection.name}"`);
 
+    // 1. Check if the configuration is in a working state
+
     try {
       this.validateCollectionConfig(collection);
     } catch (error) {
       return this.showError(error);
     }
+
+    // 2. Read all files in the collection's source path
 
     let files = {};
 
@@ -74,6 +78,8 @@ class ResponsiveImages {
 
     this.log(`${fileCount} original image ${fileCount < 2 ? "file" : "files"} found.\n`);
 
+    // 3. Remove existing resized images, if the argument "remove" or "create" is used
+
     if (this.remove || this.recreate) {
       if (this.remove) {
         this.log("Removing resized image formats.");
@@ -87,6 +93,8 @@ class ResponsiveImages {
       this.log("");
     }
 
+    // 4. Resize the images using sharp()
+
     await this.resizeImages(files.original, collection.sizes);
   }
 
@@ -98,23 +106,25 @@ class ResponsiveImages {
    * @throws {Error}
    */
   validateCollectionConfig(collection) {
-    // Validate the source path
+    // 1. Validate the source path
+
     if (!this.isValidSource(collection.sourcePath)) {
       throw new Error(`The directory ${collection.sourcePath} does not exist or is not readable!`);
     }
 
-    // Validate size configurations
+    // 2. Validate size configurations
+
     if (!collection["sizes"] || collection.sizes.length === 0) {
       throw new Error("No sizes configured!");
     }
 
     collection.sizes.forEach((size, index) => {
       if (!size["name"]) {
-        throw new Error(`Missing configuration for a target width or height for sizes[${index}]!`);
+        throw new Error(`Missing name property for sizes[${index}]!`);
       }
 
       if (!size["width"] && !size["height"]) {
-        throw new Error(`Missing configuration for a target width or height for size "${size.name}"!`);
+        throw new Error(`No width or height set for size "${size.name}"!`);
       }
     });
   }
@@ -251,6 +261,13 @@ class ResponsiveImages {
     }
   }
 
+  /**
+   * Resizes a single image, based on tze size config that is passed.
+   * Options that are needed, but not set, will use defaults.
+   *
+   * @param {String} file    The file (including path and filename)
+   * @param {Object} config  The size configuration from the collection
+   */
   async resizeImage(file, config) {
     const filename = this.addFilenamePostfix(file, config);
     const targetFile = `${path.dirname(file)}/${filename}`;
@@ -260,8 +277,8 @@ class ResponsiveImages {
     const resizeOptions = {
       width: config["width"],
       height: config["height"],
-      fit: config["fit"],
-      position: config["position"]
+      fit: config["fit"] || "cover",
+      position: config["position"] || "center"
     };
 
     await sharp(file)
@@ -269,6 +286,18 @@ class ResponsiveImages {
       .toFile(targetFile);
   }
 
+  /**
+   * Adds a postfix to a filename, based on the sizing that is passed as config
+   * and defined in the configuration file.
+   *
+   * Example:
+   *  - lonely-cat-1110x457.jpg    Resized version with a fixed width and height
+   *  - lonely-cat-w800.jpg        Resized version with a fixed width
+   *  - lonely-cat-h400.jpg        Resized version with a fixed height
+   *
+   * @param {String} file
+   * @param {Object} config
+   */
   addFilenamePostfix(file, config) {
     let filename = path.basename(file);
     const extension = path.extname(file);
