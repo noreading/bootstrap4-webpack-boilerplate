@@ -181,7 +181,7 @@ The configuration has some global settings, that you should set to your personal
 <table>
   <thead>
     <tr>
-      <th align="left">Options</th>
+      <th align="left">Option</th>
       <th align="left">Description</th>
       <th align="left">Default</th>
     </tr>
@@ -339,7 +339,7 @@ If you're one of the photographers and would like to change the linked website o
 <table>
   <thead>
     <tr>
-      <th align="left">Slide</th>
+      <th align="left">Carousel Image</th>
       <th align="left">Photographer</th>
       <th align="left">Website</th>
       <th align="left">Image Source</th>
