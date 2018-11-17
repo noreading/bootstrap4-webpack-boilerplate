@@ -133,9 +133,17 @@ The [sharp](https://www.npmjs.com/package/sharp) npm package is used to resize t
 
 The responsive image configuration is saved in the `images.config.js` file, located in the root directory of the project.
 
+#### Global Settings
+
+The configuration has some global settings, that you should set to your personal preferences.
+
+| Option   | Description                                                                                                | Default |
+| :------- | :--------------------------------------------------------------------------------------------------------- | :------ |
+| useTrash | Moves files to the trash instead of deleting them directly, when using the "recreate" or "remove" argument | false   |
+
 #### Collections
 
-The configuration is split into **collections** which include a set of configuration options to resize images. This allows you to define different resizing rules for multiple directories.
+The configuration uses **collections** which include a set of configuration options to resize images. This allows you to define different resizing rules for multiple directories.
 
 Each collection has the following options.
 
