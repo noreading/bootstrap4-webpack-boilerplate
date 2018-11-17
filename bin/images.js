@@ -37,9 +37,7 @@ class ResponsiveImages {
     for (let i = 0; i < collectionCount; i++) {
       const collection = this.config.collections[i];
       collection.source = this.trailingSlah(collection.source);
-      collection.sourcePath = this.trailingSlah(
-        path.resolve(collection.source)
-      );
+      collection.sourcePath = this.trailingSlah(path.resolve(collection.source));
 
       await this.runCollection(collection);
     }
@@ -74,14 +72,14 @@ class ResponsiveImages {
       return this.log("No images found.");
     }
 
-    this.log(
-      `${fileCount} original image ${fileCount < 2 ? "file" : "files"} found.\n`
-    );
+    this.log(`${fileCount} original image ${fileCount < 2 ? "file" : "files"} found.\n`);
 
     if (this.remove || this.recreate) {
       if (this.remove) {
         this.log("Removing resized image formats.");
-        return this.removeFiles(files.resized);
+        this.removeFiles(files.resized);
+        this.log("");
+        return;
       }
 
       this.log("Removing resized image formats.");
@@ -89,7 +87,7 @@ class ResponsiveImages {
       this.log("");
     }
 
-    this.resizeImages(files.original, collection.sizes);
+    await this.resizeImages(files.original, collection.sizes);
   }
 
   /**
@@ -102,11 +100,7 @@ class ResponsiveImages {
   validateCollectionConfig(collection) {
     // Validate the source path
     if (!this.isValidSource(collection.sourcePath)) {
-      throw new Error(
-        `The directory ${
-          collection.sourcePath
-        } does not exist or is not readable!`
-      );
+      throw new Error(`The directory ${collection.sourcePath} does not exist or is not readable!`);
     }
 
     // Validate size configurations
@@ -116,17 +110,11 @@ class ResponsiveImages {
 
     collection.sizes.forEach((size, index) => {
       if (!size["name"]) {
-        throw new Error(
-          `Missing configuration for a target width or height for sizes[${index}]!`
-        );
+        throw new Error(`Missing configuration for a target width or height for sizes[${index}]!`);
       }
 
       if (!size["width"] && !size["height"]) {
-        throw new Error(
-          `Missing configuration for a target width or height for size "${
-            size.name
-          }"!`
-        );
+        throw new Error(`Missing configuration for a target width or height for size "${size.name}"!`);
       }
     });
   }
@@ -166,9 +154,7 @@ class ResponsiveImages {
    */
   async getFiles(collection) {
     let files = [];
-    let globPath = `${collection.source}${
-      collection.recursive ? "**/*.*" : "*.*"
-    }`;
+    let globPath = `${collection.source}${collection.recursive ? "**/*.*" : "*.*"}`;
 
     try {
       files = await glob(globPath, {
@@ -179,9 +165,7 @@ class ResponsiveImages {
     } catch (error) {
       switch (error.errno) {
         case -13:
-          throw new Error(
-            `Permission denied for directory "${collection.path}"`
-          );
+          throw new Error(`Permission denied for directory "${collection.path}"`);
         default:
           throw error;
       }
@@ -235,10 +219,7 @@ class ResponsiveImages {
     files.forEach(file => {
       const mimeType = mime.lookup(file);
 
-      if (
-        this.mimeTypes.includes(mimeType) &&
-        /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)
-      ) {
+      if (this.mimeTypes.includes(mimeType) && /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)) {
         this.log(`  => ${file}`);
         fs.unlinkSync(file);
       }
@@ -293,20 +274,11 @@ class ResponsiveImages {
     const extension = path.extname(file);
 
     if (config["width"] && config["height"]) {
-      filename = filename.replace(
-        RegExp(`${extension}$`),
-        `-${config["width"]}x${config["height"]}${extension}`
-      );
+      filename = filename.replace(RegExp(`${extension}$`), `-${config["width"]}x${config["height"]}${extension}`);
     } else if (config["width"]) {
-      filename = filename.replace(
-        RegExp(`${extension}$`),
-        `-w${config["width"]}${extension}`
-      );
+      filename = filename.replace(RegExp(`${extension}$`), `-w${config["width"]}${extension}`);
     } else if (config["height"]) {
-      filename = filename.replace(
-        RegExp(`${extension}$`),
-        `-h${config["height"]}${extension}`
-      );
+      filename = filename.replace(RegExp(`${extension}$`), `-h${config["height"]}${extension}`);
     }
 
     return filename;
@@ -363,7 +335,5 @@ if (fs.existsSync(configPath)) {
   const config = require(configPath)();
   new ResponsiveImages(config);
 } else {
-  console.log(
-    `ERROR: Missing config file "images.config.js" in main directory!`
-  );
+  console.log(`ERROR: Missing config file "images.config.js" in main directory!`);
 }
