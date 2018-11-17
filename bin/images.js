@@ -15,6 +15,7 @@ const configPath = path.resolve("images.config.js");
 
 class ResponsiveImages {
   constructor(config) {
+    this.resizedFilenamePattern = /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/i;
     this.mimeTypes = ["image/jpeg", "image/png"];
     this.files = [];
     this.config = config;
@@ -210,7 +211,7 @@ class ResponsiveImages {
         return filtered.ignored.push(file);
       }
 
-      if (/\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)) {
+      if (this.resizedFilenamePattern.test(file)) {
         return filtered.resized.push(file);
       }
 
@@ -229,7 +230,7 @@ class ResponsiveImages {
     files.forEach(file => {
       const mimeType = mime.lookup(file);
 
-      if (this.mimeTypes.includes(mimeType) && /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/.test(file)) {
+      if (this.mimeTypes.includes(mimeType) && this.resizedFilenamePattern.test(file)) {
         this.log(`  => ${file}`);
         fs.unlinkSync(file);
       }
