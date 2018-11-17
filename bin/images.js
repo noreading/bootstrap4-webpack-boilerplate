@@ -17,7 +17,7 @@ const configPath = path.resolve("images.config.js");
 class ResponsiveImages {
   constructor(config) {
     this.resizedFilenamePattern = /\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$/i;
-    this.mimeTypes = ["image/jpeg", "image/png"];
+    this.mimeTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp", "image/webp", "image/svg+xml"];
     this.files = [];
     this.config = config;
     this.recreate = process.argv.includes("recreate");
