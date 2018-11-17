@@ -108,7 +108,7 @@ Filenames, that will **not** be recognized as original images, are:
 | your-image-h400.jpg    | Resized using a fixed height only      | {filename}-h{height}.{extension}        |
 | your-image-200x400.jpg | Resized using a fixed width and height | {filename}-{width}x{height}.{extension} |
 
-You can use a [test tool](https://regex101.com/r/7Nh1QR/5) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
+You can use a [test tool](https://regex101.com/r/6f2cEu/1) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
 
 You can use the regular expression to test files on your local machine, too. On Linux and Mac operating systems you can check if any images in a folder match the pattern by using the following command:
 
