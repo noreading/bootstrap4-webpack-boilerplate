@@ -30,6 +30,7 @@
     "sass-loader": "^7.1.0",
     "sharp": "^0.21.0",
     "tiny-glob": "^0.2.3",
+    "trash": "^4.3.0",
     "uglify-js": "^3.4.9",
     "uglifyjs-webpack-plugin": "^2.0.0",
     "webpack": "^4.25.1",

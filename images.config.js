@@ -1,5 +1,10 @@
 module.exports = (env, argv) => {
   return {
+    settings: {
+      // Move files to the trash instead of deleting them directly, when using the
+      // "recreate" or "remove" argument
+      useTrash: false
+    },
     collections: [
       // Slider Images 1
       {

@@ -9,6 +9,7 @@
 const glob = require("tiny-glob");
 const fs = require("fs");
 const path = require("path");
+const trash = require("trash");
 const mime = require("mime-types");
 const sharp = require("sharp");
 const configPath = path.resolve("images.config.js");
@@ -227,12 +228,17 @@ class ResponsiveImages {
    * @param {Array} files
    */
   removeFiles(files) {
-    files.forEach(file => {
+    files.forEach(async file => {
       const mimeType = mime.lookup(file);
 
       if (this.mimeTypes.includes(mimeType) && this.resizedFilenamePattern.test(file)) {
         this.log(`  => ${file}`);
-        fs.unlinkSync(file);
+
+        if (this.config.settings.useTrash) {
+          await trash(file);
+        } else {
+          await fs.unlinkSync(file);
+        }
       }
     });
   }
