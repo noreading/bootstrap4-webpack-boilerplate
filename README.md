@@ -153,25 +153,27 @@ npm run images remove
 
 ## Placeholder Images
 
-All placeholder images are downloaded from [Pexels.com](https://www.pexels.com/), and [pixabay.com](https://pixabay.com/) two fantastic collections of free stock photos, shared by talented photographers around the globe.
+All placeholder images used in the `index.html` file are downloaded from [pexels.com](https://www.pexels.com/), and [pixabay.com](https://pixabay.com/). Those are two fantastic collections of free stock photos from photographers around the globe.
+
+If you're one of the photographers and would like to change the linked website or get an image removed from the boilerplate, please shoot me an email to code@dominik-hanke.de and I'll update it as soon as possible.
 
 **Slides**
 
-| Photographer                                                     | Website                                                           | Image Source                                                                |
-| :--------------------------------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------------------------------- |
-| [kailash kumar](https://www.pexels.com/@kailash-kumar-212268)    | [facebook page](https://www.facebook.com/kailashkumarphotogrphy/) | [pexels.com](https://www.pexels.com/photo/white-sheep-on-farm-693776/)      |
-| [Cleverpix](https://pixabay.com/en/users/Cleverpix-2508959/)     | [cleverpix.com.au](https://www.cleverpix.com.au/)                 | [pixabay.com](https://pixabay.com/en/sunset-tree-water-silhouette-1373171/) |
-| [GregMontani](https://pixabay.com/en/users/GregMontani-1014946/) | -                                                                 | [pixabay.com](https://pixabay.com/en/desert-morocco-dunes-sand-2435404/)    |
+| Slide | Photographer                                                     | Website                                                           | Image Source                                                                |
+| :---- | :--------------------------------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| 1     | [kailash kumar](https://www.pexels.com/@kailash-kumar-212268)    | [facebook page](https://www.facebook.com/kailashkumarphotogrphy/) | [pexels.com](https://www.pexels.com/photo/white-sheep-on-farm-693776/)      |
+| 2     | [Cleverpix](https://pixabay.com/en/users/Cleverpix-2508959/)     | [cleverpix.com.au](https://www.cleverpix.com.au/)                 | [pixabay.com](https://pixabay.com/en/sunset-tree-water-silhouette-1373171/) |
+| 3     | [GregMontani](https://pixabay.com/en/users/GregMontani-1014946/) | -                                                                 | [pixabay.com](https://pixabay.com/en/desert-morocco-dunes-sand-2435404/)    |
 
 **Album Photos**
 
-| Photographer                                                   | Website                                                            | Image Source                                                                                               |
-| :------------------------------------------------------------- | :----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [skeeze](https://pixabay.com/en/users/skeeze-272447/)          | -                                                                  | [pixabay.com](https://pixabay.com/en/landscape-panorama-scenic-clouds-2278315/)                            |
-| [shottrotter](https://www.pexels.com/@shottrotter)             | [shottrotter.be](http://www.shottrotter.be/)                       | [pexels.com](https://www.pexels.com/photo/photo-of-person-walking-on-deserted-island-934718/)              |
-| [sasint](https://pixabay.com/en/users/sasint-3639875/)         | [pixartasia.com](http://www.pixartasia.com/)                       | [pixabay.com](https://pixabay.com/en/elephant-animals-asia-large-1822636/)                                 |
-| [Walkerssk](https://pixabay.com/en/users/Walkerssk-1409366/)   | [walkers.sk](http://www.walkers.sk/)                               | [pixabay.com](https://pixabay.com/en/cinque-terre-italy-houses-color-1859688/)                             |
-| [Marcocarli](https://pixabay.com/en/users/Marcocarli-4847725/) | -                                                                  | [pixabay.com](https://pixabay.com/en/mountain-alpine-wild-emperor-2444712/)                                |
-| [Jaymantri](https://www.pexels.com/@jaymantri)                 | [jaymantri.com](https://jaymantri.com/)                            | [pexels.com](https://www.pexels.com/photo/nature-forest-trees-fog-4827/)                                   |
-| [veeterzy](https://www.pexels.com/@veeterzy)                   | [instagram profile](https://www.instagram.com/veeterzy?ref=pexels) | [pexels.com](https://www.pexels.com/photo/road-landscape-nature-forest-39811)                              |
-| [Pok Rie](https://www.pexels.com/@pok-rie-33563)               | -                                                                  | [pexels.com](https://www.pexels.com/photo/brown-wooden-footbridge-on-body-of-water-during-sunrise-129441/) |
+| Photo | Photographer                                                   | Website                                                            | Image Source                                                                                               |
+| :---- | :------------------------------------------------------------- | :----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1     | [skeeze](https://pixabay.com/en/users/skeeze-272447/)          | -                                                                  | [pixabay.com](https://pixabay.com/en/landscape-panorama-scenic-clouds-2278315/)                            |
+| 2     | [shottrotter](https://www.pexels.com/@shottrotter)             | [shottrotter.be](http://www.shottrotter.be/)                       | [pexels.com](https://www.pexels.com/photo/photo-of-person-walking-on-deserted-island-934718/)              |
+| 3     | [sasint](https://pixabay.com/en/users/sasint-3639875/)         | [pixartasia.com](http://www.pixartasia.com/)                       | [pixabay.com](https://pixabay.com/en/elephant-animals-asia-large-1822636/)                                 |
+| 4     | [Walkerssk](https://pixabay.com/en/users/Walkerssk-1409366/)   | [walkers.sk](http://www.walkers.sk/)                               | [pixabay.com](https://pixabay.com/en/cinque-terre-italy-houses-color-1859688/)                             |
+| 5     | [Marcocarli](https://pixabay.com/en/users/Marcocarli-4847725/) | -                                                                  | [pixabay.com](https://pixabay.com/en/mountain-alpine-wild-emperor-2444712/)                                |
+| 6     | [Jaymantri](https://www.pexels.com/@jaymantri)                 | [jaymantri.com](https://jaymantri.com/)                            | [pexels.com](https://www.pexels.com/photo/nature-forest-trees-fog-4827/)                                   |
+| 7     | [veeterzy](https://www.pexels.com/@veeterzy)                   | [instagram profile](https://www.instagram.com/veeterzy?ref=pexels) | [pexels.com](https://www.pexels.com/photo/road-landscape-nature-forest-39811)                              |
+| 8     | [Pok Rie](https://www.pexels.com/@pok-rie-33563)               | -                                                                  | [pexels.com](https://www.pexels.com/photo/brown-wooden-footbridge-on-body-of-water-during-sunrise-129441/) |
