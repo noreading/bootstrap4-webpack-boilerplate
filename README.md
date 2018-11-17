@@ -96,19 +96,22 @@ In order for this command to work properly you need to have _"clean"_ filenames 
 
 Filenames, that will be recognized as original images, are:
 
-- my-image.jpg
-- my-image-is-fancy.jpg
-- my-image-400x200-tablet.jpg
+| Allowed Filename            | Description                                              |
+| :-------------------------- | :------------------------------------------------------- |
+| my-image.jpg                | Simple filenames                                         |
+| my-image-1982-to-2018.jpg   | Filenames including numbers, also at the end.            |
+| my-image-400x200-tablet.jpg | Filenames including dimensions, but not at the end.      |
+| my-image_400x200.jpg        | Filenames including dimensions, but using an underscore. |
 
 Filenames, that will **not** be recognized as original images, are:
 
-| Filename               | Description                            | Pattern                                 |
+| Prohibited Filename    | Description                            | Pattern                                 |
 | :--------------------- | :------------------------------------- | :-------------------------------------- |
 | your-image-w200.jpg    | Resized using a fixed width only       | {filename}-w{width}.{extension}         |
 | your-image-h400.jpg    | Resized using a fixed height only      | {filename}-h{height}.{extension}        |
 | your-image-200x400.jpg | Resized using a fixed width and height | {filename}-{width}x{height}.{extension} |
 
-You can use a [test tool](https://regex101.com/r/6f2cEu/1) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
+You can use a [test tool](https://regex101.com/r/6f2cEu/2) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
 
 You can use the regular expression to test files on your local machine, too. On Linux and Mac operating systems you can check if any images in a folder match the pattern by using the following command:
 
