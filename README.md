@@ -99,8 +99,8 @@ Filenames, that will be recognized as original images, are as follows.
 <table>
   <thead>
     <tr>
-      <th>Allowed Filename</th>
-      <th>Description</th>
+      <th align="left">Allowed Filename</th>
+      <th align="left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -128,9 +128,9 @@ Filenames, that will **not** be recognized as original images, are as follows.
 <table>
   <thead>
     <tr>
-      <th>Prohibited Filename</th>
-      <th>Description</th>
-      <th>Pattern</th>
+      <th align="left">Prohibited Filename</th>
+      <th align="left">Description</th>
+      <th align="left">Pattern</th>
     </tr>
   </thead>
   <tbody>
@@ -181,9 +181,9 @@ The configuration has some global settings, that you should set to your personal
 <table>
   <thead>
     <tr>
-      <th>Options</th>
-      <th>Description</th>
-      <th>Default</th>
+      <th align="left">Options</th>
+      <th align="left">Description</th>
+      <th align="left">Default</th>
     </tr>
   </thead>
   <tbody>
@@ -204,10 +204,10 @@ Each collection has the following options.
 <table>
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Default</th>
+      <th align="left">Option</th>
+      <th align="left">Description</th>
+      <th align="left">Required</th>
+      <th align="left">Default</th>
     </tr>
   </thead>
   <tbody>
@@ -247,11 +247,11 @@ Each size has the following options.
 <table>
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Default</th>
+      <th align="left">Option</th>
+      <th align="left">Type</th>
+      <th align="left">Description</th>
+      <th align="left">Required</th>
+      <th align="left">Default</th>
     </tr>
   </thead>
   <tbody>
@@ -302,8 +302,8 @@ The resizing command supports different arguments to remove resized images, recr
 <table>
   <thead>
     <tr>
-      <th>Command</th>
-      <th>Description</th>
+      <th align="left">Command</th>
+      <th align="left">Description</th>
     </tr>
   </thead>
   <tbody>
@@ -339,10 +339,10 @@ If you're one of the photographers and would like to change the linked website o
 <table>
   <thead>
     <tr>
-      <th>Slide</th>
-      <th>Photographer</th>
-      <th>Website</th>
-      <th>Image Source</th>
+      <th align="left">Slide</th>
+      <th align="left">Photographer</th>
+      <th align="left">Website</th>
+      <th align="left">Image Source</th>
     </tr>
   </thead>
   <tbody>
@@ -389,10 +389,10 @@ If you're one of the photographers and would like to change the linked website o
 
 <table>
   <thead>
-    <th>Album Photo</th>
-    <th>Photographer</th>
-    <th>Website</th>
-    <th>Image Source</th>
+    <th align="left">Album Photo</th>
+    <th align="left">Photographer</th>
+    <th align="left">Website</th>
+    <th align="left">Image Source</th>
   </thead>
   <tbody>
     <tr>
