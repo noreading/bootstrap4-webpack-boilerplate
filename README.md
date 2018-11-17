@@ -117,3 +117,28 @@ The recreation process will remove all images it detects as being resized by the
 ```bash
 npm run images recreate
 ```
+
+## Placeholder Images
+
+All placeholder images are downloaded from [Pexels.com](https://www.pexels.com/), and [pixabay.com](https://pixabay.com/) two fantastic collections of free stock photos, shared by talented photographers around the globe.
+
+**Slides**
+
+| Photographer                                                     | Source Link                                                                 |
+| :--------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| [kailash kumar](https://www.pexels.com/@kailash-kumar-212268)    | [pexels.com](https://www.pexels.com/photo/white-sheep-on-farm-693776/)      |
+| [Cleverpix](https://pixabay.com/en/users/Cleverpix-2508959/)     | [pixabay.com](https://pixabay.com/en/sunset-tree-water-silhouette-1373171/) |
+| [GregMontani](https://pixabay.com/en/users/GregMontani-1014946/) | [pixabay.com](https://pixabay.com/en/desert-morocco-dunes-sand-2435404/)    |
+
+**Album Photos**
+
+| Photographer                                                   | Source Link                                                                                                |
+| :------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| [skeeze](https://pixabay.com/en/users/skeeze-272447/)          | [pixabay.com](https://pixabay.com/en/landscape-panorama-scenic-clouds-2278315/)                            |
+| [shottrotter](https://www.pexels.com/@shottrotter)             | [pexels.com](https://www.pexels.com/photo/photo-of-person-walking-on-deserted-island-934718/)              |
+| [sasint](https://pixabay.com/en/users/sasint-3639875/)         | [pixabay.com](https://pixabay.com/en/elephant-animals-asia-large-1822636/)                                 |
+| [Walkerssk](https://pixabay.com/en/users/Walkerssk-1409366/)   | [pixabay.com](https://pixabay.com/en/cinque-terre-italy-houses-color-1859688/)                             |
+| [Marcocarli](https://pixabay.com/en/users/Marcocarli-4847725/) | [pixabay.com](https://pixabay.com/en/mountain-alpine-wild-emperor-2444712/)                                |
+| [Jaymantri](https://www.pexels.com/@jaymantri)                 | [pexels.com](https://www.pexels.com/photo/nature-forest-trees-fog-4827/)                                   |
+| [veeterzy](https://www.pexels.com/@veeterzy)                   | [pexels.com](https://www.pexels.com/photo/road-landscape-nature-forest-39811)                              |
+| [Pok Rie](https://www.pexels.com/@pok-rie-33563)               | [pexels.com](https://www.pexels.com/photo/brown-wooden-footbridge-on-body-of-water-during-sunrise-129441/) |
