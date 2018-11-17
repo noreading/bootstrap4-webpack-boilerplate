@@ -96,20 +96,61 @@ In order for this command to work properly you need to have "clean" filenames fo
 
 Filenames, that will be recognized as original images, are as follows.
 
-| Allowed Filename            | Description                                              |
-| :-------------------------- | :------------------------------------------------------- |
-| my-image.jpg                | Simple filenames                                         |
-| my-image-1982-to-2018.jpg   | Filenames including numbers, also at the end.            |
-| my-image-400x200-tablet.jpg | Filenames including dimensions, but not at the end.      |
-| my-image_400x200.jpg        | Filenames including dimensions, but using an underscore. |
+<table>
+  <thead>
+    <tr>
+      <th>Allowed Filename</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">my-image.jpg</td>
+      <td valign="top">Simple filenames</td>
+    </tr>
+    <tr>
+      <td valign="top">my-image-1982-to-2018.jpg</td>
+      <td valign="top">Filenames including numbers, also at the end.</td>
+    </tr>
+    <tr>
+      <td valign="top">my-image-400x200-tablet.jpg</td>
+      <td valign="top">Filenames including dimensions, but not at the end.</td>
+    </tr>
+    <tr>
+      <td valign="top">my-image_400x200.jpg</td>
+      <td valign="top">Filenames including dimensions, but using an underscore.</td>
+    </tr>
+  </tbody>
+</table>
 
 Filenames, that will **not** be recognized as original images, are as follows.
 
-| Prohibited Filename    | Description                            | Pattern                                 |
-| :--------------------- | :------------------------------------- | :-------------------------------------- |
-| your-image-w200.jpg    | Resized using a fixed width only       | {filename}-w{width}.{extension}         |
-| your-image-h400.jpg    | Resized using a fixed height only      | {filename}-h{height}.{extension}        |
-| your-image-200x400.jpg | Resized using a fixed width and height | {filename}-{width}x{height}.{extension} |
+<table>
+  <thead>
+    <tr>
+      <th>Prohibited Filename</th>
+      <th>Description</th>
+      <th>Pattern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">your-image-w200.jpg</td>
+      <td valign="top">Resized using a fixed width only</td>
+      <td valign="top">{filename}-w{width}.{extension}</td>
+    </tr>
+    <tr>
+      <td valign="top">your-image-h400.jpg</td>
+      <td valign="top">Resized using a fixed height only</td>
+      <td valign="top">{filename}-h{height}.{extension}</td>
+    </tr>
+    <tr>
+      <td valign="top">your-image-200x400.jpg</td>
+      <td valign="top">Resized using a fixed width and height</td>
+      <td valgin="top">{filename}-{width}x{height}.{extension}</td>
+    </tr>
+  </tbody>
+</table>
 
 You can use a [test tool](https://regex101.com/r/6f2cEu/4) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
 
@@ -137,9 +178,22 @@ The responsive image configuration is saved in the `images.config.js` file, loca
 
 The configuration has some global settings, that you should set to your personal preferences.
 
-| Option   | Description                                                                                                | Default |
-| :------- | :--------------------------------------------------------------------------------------------------------- | :------ |
-| useTrash | Moves files to the trash instead of deleting them directly, when using the "recreate" or "remove" argument | false   |
+<table>
+  <thead>
+    <tr>
+      <th>Options</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">useTrash</td>
+      <td valign="top">Moves files to the trash instead of deleting them directly, when using the "recreate" or "remove" argument.</td>
+      <td valign="top">false</td>
+    </tr>
+  </tbody>
+</table>
 
 #### Collections
 
@@ -147,12 +201,42 @@ The configuration uses **collections** which include a set of configuration opti
 
 Each collection has the following options.
 
-| Option    | Description                                                        | Required | Default |
-| :-------- | :----------------------------------------------------------------- | :------- | :------ |
-| name      | The name of the collection, to identify it in error messages, etc. | yes      | -       |
-| source    | The source directory of the image files that should get resized.   | yes      | -       |
-| recursive | Resize images in subdirectories, too?                              | no       | true    |
-| sizes     | The configurations for image sizes that get created.               | yes      | -       |
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">name</td>
+      <td valign="top">The name of the collection, to identify it in error messages, etc.</td>
+      <td valign="top">yes</td>
+      <td valign="top">-</td>
+    </tr>
+    <tr>
+      <td valign="top">source</td>
+      <td valign="top">The source directory of the image files that should get resized.</td>
+      <td valign="top">yes</td>
+      <td valign="top">-</td>
+    </tr>
+    <tr>
+      <td valign="top">recursive</td>
+      <td valign="top">Resize images in subdirectories, too?</td>
+      <td valign="top">no</td>
+      <td valign="top">true</td>
+    </tr>
+    <tr>
+      <td valign="top">sizes</td>
+      <td valign="top">The configurations for image sizes that get created.</td>
+      <td valign="top">yes</td>
+      <td valign="top">-</td>
+    </tr>
+  </tbody>
+</table>
 
 ##### Sizes
 
@@ -215,11 +299,28 @@ Each size has the following options.
 
 The resizing command supports different arguments to remove resized images, recreate all images, etc.
 
-| Command                 | Description                                                  |
-| :---------------------- | :----------------------------------------------------------- |
-| npm run images          | Creates all resized versions of a file that are missing      |
-| npm run images recreate | Removes the resized versions of all files and recreates them |
-| npm run remove          | Removes the resized versions of all files                    |
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">npm run images</td>
+      <td valign="top">Creates all resized versions of a file that are missing.</td>
+    </tr>
+    <tr>
+      <td valign="top">npm run images recreate</td>
+      <td valign="top">Removes the resized versions of all files and recreates them.</td>
+    </tr>
+    <tr>
+      <td valign="top">npm run remove</td>
+      <td valign="top">Removes the resized versions of all files.</td>
+    </tr>
+  </tbody>
+</table>
 
 **Important:**
 
@@ -235,23 +336,160 @@ All placeholder images used in the `index.html` file are downloaded from [pexels
 
 If you're one of the photographers and would like to change the linked website or get an image removed from the boilerplate, please shoot me an email to code@dominik-hanke.de and I'll update it as soon as possible.
 
-**Slides**
+<table>
+  <thead>
+    <tr>
+      <th>Slide</th>
+      <th>Photographer</th>
+      <th>Website</th>
+      <th>Image Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">1</td>
+      <td valign="top">
+        <a href="https://www.pexels.com/@kailash-kumar-212268">kailash kumar</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.facebook.com/kailashkumarphotogrphy/">facebook page</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.pexels.com/photo/white-sheep-on-farm-693776/">pexels.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">2</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/Cleverpix-2508959/">Cleverpix</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.cleverpix.com.au/">cleverpix.com.au</a>
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/sunset-tree-water-silhouette-1373171/">pixabay.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">3</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/GregMontani-1014946/">GregMontani</a>
+      </td>
+      <td valign="top">
+        -
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/desert-morocco-dunes-sand-2435404/">pixabay.com</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-| Slide | Photographer                                                     | Website                                                           | Image Source                                                                |
-| :---- | :--------------------------------------------------------------- | :---------------------------------------------------------------- | :-------------------------------------------------------------------------- |
-| 1     | [kailash kumar](https://www.pexels.com/@kailash-kumar-212268)    | [facebook page](https://www.facebook.com/kailashkumarphotogrphy/) | [pexels.com](https://www.pexels.com/photo/white-sheep-on-farm-693776/)      |
-| 2     | [Cleverpix](https://pixabay.com/en/users/Cleverpix-2508959/)     | [cleverpix.com.au](https://www.cleverpix.com.au/)                 | [pixabay.com](https://pixabay.com/en/sunset-tree-water-silhouette-1373171/) |
-| 3     | [GregMontani](https://pixabay.com/en/users/GregMontani-1014946/) | -                                                                 | [pixabay.com](https://pixabay.com/en/desert-morocco-dunes-sand-2435404/)    |
+<br />
 
-**Album Photos**
-
-| Photo | Photographer                                                   | Website                                                            | Image Source                                                                                               |
-| :---- | :------------------------------------------------------------- | :----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 1     | [skeeze](https://pixabay.com/en/users/skeeze-272447/)          | -                                                                  | [pixabay.com](https://pixabay.com/en/landscape-panorama-scenic-clouds-2278315/)                            |
-| 2     | [shottrotter](https://www.pexels.com/@shottrotter)             | [shottrotter.be](http://www.shottrotter.be/)                       | [pexels.com](https://www.pexels.com/photo/photo-of-person-walking-on-deserted-island-934718/)              |
-| 3     | [sasint](https://pixabay.com/en/users/sasint-3639875/)         | [pixartasia.com](http://www.pixartasia.com/)                       | [pixabay.com](https://pixabay.com/en/elephant-animals-asia-large-1822636/)                                 |
-| 4     | [Walkerssk](https://pixabay.com/en/users/Walkerssk-1409366/)   | [walkers.sk](http://www.walkers.sk/)                               | [pixabay.com](https://pixabay.com/en/cinque-terre-italy-houses-color-1859688/)                             |
-| 5     | [Marcocarli](https://pixabay.com/en/users/Marcocarli-4847725/) | -                                                                  | [pixabay.com](https://pixabay.com/en/mountain-alpine-wild-emperor-2444712/)                                |
-| 6     | [Jaymantri](https://www.pexels.com/@jaymantri)                 | [jaymantri.com](https://jaymantri.com/)                            | [pexels.com](https://www.pexels.com/photo/nature-forest-trees-fog-4827/)                                   |
-| 7     | [veeterzy](https://www.pexels.com/@veeterzy)                   | [instagram profile](https://www.instagram.com/veeterzy?ref=pexels) | [pexels.com](https://www.pexels.com/photo/road-landscape-nature-forest-39811)                              |
-| 8     | [Pok Rie](https://www.pexels.com/@pok-rie-33563)               | -                                                                  | [pexels.com](https://www.pexels.com/photo/brown-wooden-footbridge-on-body-of-water-during-sunrise-129441/) |
+<table>
+  <thead>
+    <th>Album Photo</th>
+    <th>Photographer</th>
+    <th>Website</th>
+    <th>Image Source</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">1</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/skeeze-272447/">skeeze</a>
+      </td>
+      <td valign="top">
+        -
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/landscape-panorama-scenic-clouds-2278315/">pixabay.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">2</td>
+      <td valign="top">
+        <a href="https://www.pexels.com/@shottrotter">shottrotter</a>
+      </td>
+      <td valign="top">
+        <a href="http://www.shottrotter.be/">shottrotter.be</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.pexels.com/photo/photo-of-person-walking-on-deserted-island-934718/">pexels.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">3</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/sasint-3639875/">sasint</a>
+      </td>
+      <td valign="top">
+        <a href="http://www.pixartasia.com/">pixartasia.com</a>
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/elephant-animals-asia-large-1822636/">pixabay.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">4</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/Walkerssk-1409366/">Walkerssk</a>
+      </td>
+      <td valign="top">
+        <a href="http://www.walkers.sk/">walkers.sk</a>
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/cinque-terre-italy-houses-color-1859688/">pixabay.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">5</td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/users/Marcocarli-4847725/">Marcocarli</a>
+      </td>
+      <td valign="top">
+        -
+      </td>
+      <td valign="top">
+        <a href="https://pixabay.com/en/mountain-alpine-wild-emperor-2444712/">pixabay.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">6</td>
+      <td valign="top">
+        <a href="https://www.pexels.com/@jaymantri">Jaymantri</a>
+      </td>
+      <td valign="top">
+        <a href="https://jaymantri.com/">jaymantri.com</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.pexels.com/photo/nature-forest-trees-fog-4827/">pexels.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">7</td>
+      <td valign="top">
+        <a href="https://www.pexels.com/@veeterzy">veeterzy</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.instagram.com/veeterzy?ref=pexels">instagram profile</a>
+      </td>
+      <td valign="top">
+        <a href="https://www.pexels.com/photo/road-landscape-nature-forest-39811">pexels.com</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">8</td>
+      <td valign="top">
+        <a href="https://www.pexels.com/@pok-rie-33563">Pok Rie</a>
+      </td>
+      <td valign="top">
+        -
+      </td>
+      <td valign="top">
+        <a href="https://www.pexels.com/photo/brown-wooden-footbridge-on-body-of-water-during-sunrise-129441/">pexels.com</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
