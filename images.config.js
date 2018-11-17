@@ -56,20 +56,20 @@ module.exports = (env, argv) => {
             name: "Smartphone Resolution",
             width: 510,
             height: 207
-          },
-          {
-            name: "Changed width only",
-            width: 510
-          },
-          {
-            name: "Changed height only",
-            height: 207
-          },
-          {
-            name: "Centered square",
-            width: 100,
-            height: 100
           }
+          // {
+          //   name: "Changed width only",
+          //   width: 510
+          // },
+          // {
+          //   name: "Changed height only",
+          //   height: 207
+          // },
+          // {
+          //   name: "Centered square",
+          //   width: 100,
+          //   height: 100
+          // }
         ]
       }
       // Avatar Images
