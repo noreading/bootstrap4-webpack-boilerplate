@@ -113,11 +113,13 @@ Filenames, that will **not** be recognized as original images, are as follows.
 
 You can use a [test tool](https://regex101.com/r/6f2cEu/4) to check if your filenames will work correctly, by adding one filename per line into the "Test Strings" field. This helps to ensure that none of your images will be deleted.
 
-You can use the regular expression to test files on your local machine, too. On Linux and Mac operating systems you can check if any images in a folder match the pattern by using the following command:
+You can use the regular expression to test files on your local machine, too. On Linux and Mac operating systems you can check if any images in a folder would conflict with the resizing image tool by using the following command:
 
 ```bash
 find ./ -regextype egrep -regex ".*\-([0-9]+x[0-9]+|w[0-9]+|h[0-9]+)\.[a-z]+$"
 ```
+
+All files that are listed should get renamed, following the rules you can see in the tables above.
 
 ---
 
