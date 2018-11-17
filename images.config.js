@@ -10,19 +10,19 @@ module.exports = (env, argv) => {
         source: "./dist/images/slides",
 
         /* Define if the resizing should include files in subdirectories */
-        recursive: true,
+        recursive: false,
 
         /* The sizes to create */
         sizes: [
           {
             /* The name of the size, to identify it in case of errors */
-            name: "Tablet Resolution",
+            name: "Desktop Resolution",
 
             /* The width of the new image */
-            width: 690,
+            width: 1110,
 
             /* The height of the new image */
-            height: 280,
+            height: 547,
 
             /*
              * Define the method by which the image should fit (default: cover)
@@ -53,6 +53,11 @@ module.exports = (env, argv) => {
             position: "center"
           },
           {
+            name: "Tablet Resolution",
+            width: 690,
+            height: 280
+          },
+          {
             name: "Smartphone Resolution",
             width: 510,
             height: 207
@@ -71,20 +76,30 @@ module.exports = (env, argv) => {
           //   height: 100
           // }
         ]
+      },
+      // Album Images
+      {
+        name: "Album images",
+        source: "./dist/images/album",
+        recursive: false,
+        sizes: [
+          {
+            name: "Desktop Resolution",
+            width: 255,
+            height: 255
+          },
+          {
+            name: "Tablet Resolution",
+            width: 210,
+            height: 210
+          },
+          {
+            name: "Smartphone Resolution",
+            width: 510,
+            height: 510
+          }
+        ]
       }
-      // Avatar Images
-      // {
-      //   name: "Avatar images",
-      //   source: "./dist/images/avatars",
-      //   recursive: true,
-      //   sizes: [
-      //     {
-      //       name: "Tablet Resolution",
-      //       width: 690,
-      //       height: 280
-      //     }
-      //   ]
-      // }
     ]
   };
 };
