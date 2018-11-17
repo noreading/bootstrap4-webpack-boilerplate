@@ -22,10 +22,22 @@ class ResponsiveImages {
     this.config = config;
     this.recreate = process.argv.includes("recreate");
     this.remove = process.argv.includes("remove");
+    this.timer = {
+      start: new Date(),
+      end: null,
+      diff: 0
+    };
+    this.stats = {
+      removed: 0,
+      created: 0,
+      skipped: 0
+    };
 
     try {
+      this.startTimer();
       this.run();
     } catch (error) {
+      this.endTimer();
       this.showError(error);
     }
   }
@@ -43,6 +55,10 @@ class ResponsiveImages {
 
       await this.runCollection(collection);
     }
+
+    this.showTitle(`Finished Resizing`);
+    this.endTimer();
+    this.showStats();
   }
 
   /**
@@ -239,6 +255,8 @@ class ResponsiveImages {
         } else {
           await fs.unlinkSync(file);
         }
+
+        this.stats.removed++;
       }
     });
   }
@@ -282,6 +300,7 @@ class ResponsiveImages {
     this.log(`  => ${filename}`);
 
     if (fs.existsSync(targetFile)) {
+      this.stats.skipped++;
       return;
     }
 
@@ -295,6 +314,8 @@ class ResponsiveImages {
     await sharp(file)
       .resize(resizeOptions)
       .toFile(targetFile);
+
+    this.stats.created++;
   }
 
   /**
@@ -348,6 +369,34 @@ class ResponsiveImages {
   }
 
   /**
+   * Displays the statistics.
+   */
+  showStats() {
+    this.log(`Script Runtime:\n${this.round(this.timer.diff / 1000, 2)}s\n`);
+    this.log(`File Stats:`);
+
+    const stats = {
+      created: String(this.stats.created),
+      skipped: String(this.stats.skipped),
+      removed: String(this.stats.removed)
+    };
+
+    const maxLength = Math.max(stats.created.length, stats.skipped.length, stats.removed.length) + 1;
+
+    if (this.remove || this.recreate) {
+      this.log(`${stats.removed.padStart(maxLength, " ")}  image files removed`);
+    }
+
+    if (this.stats.created > 0) {
+      this.log(`${stats.created.padStart(maxLength, " ")}  image files created`);
+    }
+
+    if (this.stats.skipped > 0 && !this.remove && !this.recreate) {
+      this.log(`${stats.skipped.padStart(maxLength, " ")}  image files skipped`);
+    }
+  }
+
+  /**
    * Uses console.log() or later may be a debugging service, etc.
    * to log information.
    *
@@ -368,6 +417,36 @@ class ResponsiveImages {
     }
 
     return path;
+  }
+
+  /**
+   * Sets the start date object for the timer.
+   */
+  startTimer() {
+    this.timer.start = new Date();
+  }
+
+  /**
+   * Sets the end date object for the timer and returns the
+   * amount of milliseconds between start and end.
+   *
+   * @return {Number}  The number of milliseconds since the timer started
+   */
+  endTimer() {
+    this.timer.end = new Date();
+    this.timer.diff = this.timer.end - this.timer.start;
+
+    return this.diff;
+  }
+
+  /**
+   * Rounds a number with a given amount of decimals.
+   *
+   * @param {number} value
+   * @param {number} decimals
+   */
+  round(value, decimals) {
+    return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
   }
 }
 
