@@ -92,9 +92,9 @@ This boilerplate includes a command to resize images based on a configuration fi
 
 If you want to use the resizing feature, please edit the file `images.config.js` in the root directory and change all settings to your needs. You can add multiple collections with different configurations for greatest flexibility.
 
-In order for this command to work properly you need to have _"clean"_ filenames for your images, that don't match the patterns used to create the resized filenames automatically. The filenames get a postfix, based on the resizing settings for the images width and height.
+In order for this command to work properly you need to have "clean" filenames for your images, that don't match the patterns used to create the resized filenames automatically. The filenames get a postfix, based on the resizing settings for the images width and height.
 
-Filenames, that will be recognized as original images, are:
+Filenames, that will be recognized as original images, are as follows.
 
 | Allowed Filename            | Description                                              |
 | :-------------------------- | :------------------------------------------------------- |
@@ -103,7 +103,7 @@ Filenames, that will be recognized as original images, are:
 | my-image-400x200-tablet.jpg | Filenames including dimensions, but not at the end.      |
 | my-image_400x200.jpg        | Filenames including dimensions, but using an underscore. |
 
-Filenames, that will **not** be recognized as original images, are:
+Filenames, that will **not** be recognized as original images, are as follows.
 
 | Prohibited Filename    | Description                            | Pattern                                 |
 | :--------------------- | :------------------------------------- | :-------------------------------------- |
