@@ -281,6 +281,10 @@ class ResponsiveImages {
 
     this.log(`  => ${filename}`);
 
+    if (fs.existsSync(targetFile)) {
+      return;
+    }
+
     const resizeOptions = {
       width: config["width"],
       height: config["height"],
