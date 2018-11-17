@@ -1,7 +1,7 @@
 {
   "name": "bootstrap4-webpack-boilerplate",
-  "version": "1.0.0",
-  "description": "A basic boilerplate for Bootstrap 4, using webpack and babel.",
+  "version": "1.1.0",
+  "description": "A simple boilerplate using Bootstrap 4, Webpack and Babel.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
