@@ -1,92 +1,93 @@
 # Bootstrap 4 + WebPack 4 = Boilerplate
 
-This is a simple boilerplate to setup Bootstrap 4 with SCSS and WebPack for a new project. [Babel](https://babeljs.io/) and the famous [Autoprefixer](https://autoprefixer.github.io/) are included by default - so you're ready work on your new project in a few easy steps.
+This is a professional front-end template for building web apps and sites faster, without having to create the basic setup on your own, every time you start a new project.
 
-## Installation
+The template is based on [Bootstrap Framework](http://getbootstrap.com/) version 4 and uses [Webpack](https://webpack.js.org/) as a flexible and modern module bundler. All common features for front-end projects (like SCSS compilation, minifying of Assets, etc.) are included out of the box.
 
-1. Create a directory for your new project
+In addition to the basic front-end project setup, I added some cool features like a configurable image resizing command to make generating responsive images a breeze.
 
-   ```bash
-   mkdir new-project
-   ```
+## 1. Features
 
-1. Switch to that directory
+- [Webpack](https://webpack.js.org) is used as a modern JavaScript module bundler.
+- [Babel](https://babeljs.io/) lets you write ES6 compatible JavaScript code.
+- [Autoprefixer](https://autoprefixer.github.io/) cares about vendor prefixes in CSS.
+- [Responsive images](#responsive-image-generation) have never been easier.
 
-   ```bash
-   cd new-project
-   ```
+## 2. Quick Start
 
-1. Clone the repository in the project folder
+1. Clone the repository into a new folder for your new project.
 
-   ```bash
-   git clone git@github.com:noreading/bootstrap4-webpack-boilerplate.git .
-   ```
+```bash
+git clone git@github.com:noreading/bootstrap4-webpack-boilerplate.git my-project
+```
 
-1. Remove the Git-Connection to this repository
+1. Remove the .git directory to add your own CVS later.
 
-   ```bash
-   rm -rf .git
-   ```
+```bash
+rm -rf .git
+```
 
-1. Update the package.json
+1. Update the package.json.
 
-   ```JSON
+```JSON
    {
-     "name": "new-project",
-     "version": "1.0.0",
-     "description": "A description of your new project",
-      ...
+     "name": "my-project",
+     "description": "A description of my new project",
      "author": "Your Name",
      "license": "MIT",
    }
-   ```
+```
 
 1. Install needed dependencies
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-1. Remember the development command
+1. Run the dev command
 
-   Don't forget that you need the `npm run dev` command to watch for changes in JS and SCSS files and also to compile them initially.
+```bash
+npm run dev
+```
 
-1. If you don't need Bootstrap's JavaScript features
+The dev command will start Webpack and tell it to watch for changes in JS and SCSS files, to recompile the needed assets.
 
-   If you **do not** want to use any of the Bootstrap features that are relying on JavaScript and jQuery, please remove some lines in your code.
+## 3. Build for production
 
-   **/src/index.js**
+```bash
+npm run build
+```
 
-   ```javascript
-   import Popper from "popper.js";
-   window.jQuery = $;
-   window.$ = $;
+This command tells webpack to run in production mode and compiles all of the assets in a minified version, to deliver smaller files for your users.
 
-   require("bootstrap");
-   ```
+## 4. Remove Bootstrap's JavaScript and jQuery
 
-   **/webpack.config.js**
+If you **do not** want to use any of the Bootstrap features that are relying on JavaScript and jQuery, you can remove some lines in your code to get rid of them completely.
 
-   ```javascript
-   new webpack.ProvidePlugin({
-     $: "jquery",
-     jQuery: "jquery"
-   });
-   ```
+Remove the following lines of code and re-run the dev command to update the generate assets.
 
-## Build
+**/src/index.js**
 
-Run the command `npm run build` or `yarn build` to run webpack in `production` mode and compile all of the assets.
+```javascript
+import Popper from "popper.js";
+window.jQuery = $;
+window.$ = $;
 
-CSS and JavaScript will be minified in the build version, so that you deliver smaller files to your users.
+require("bootstrap");
+```
 
-## Development
+**/webpack.config.js**
 
-Run the command `npm run dev` or `yarn dev` to run webpack in `development` mode so that it watches for file changes to recompile assets, when the source code is changed.
+```javascript
+new webpack.ProvidePlugin({
+  $: "jquery",
+  jQuery: "jquery"
+});
+```
 
-## Responsive Image Creation
+## 5. Responsive Image Generation
 
-### What is it?
+### 5.1 What is it?
 
 This boilerplate includes a command to resize images based on a configuration file, to get rid of the hassle to care about the responsive image sizes manually. One of the benefits of this process is that it works on all major operating systems, without the need to do any manual installations.
 
@@ -164,17 +165,11 @@ All files that are listed should get renamed, following the rules you can see in
 
 ---
 
-You need more options?
-
-The [sharp](https://www.npmjs.com/package/sharp) npm package is used to resize the images, so more options and resizing features might get added to the configuration in the future. Contributions are always welcome, as I've got a limited amount of free time to work on projects like this.
-
----
-
-### The Configuration
+### 5.2 The Configuration
 
 The responsive image configuration is saved in the `images.config.js` file, located in the root directory of the project.
 
-#### Global Settings
+#### 5.2.1 Global Settings
 
 The configuration has some global settings, that you should set to your personal preferences.
 
@@ -195,7 +190,7 @@ The configuration has some global settings, that you should set to your personal
   </tbody>
 </table>
 
-#### Collections
+#### 5.2.2 Collections
 
 The configuration uses **collections** which include a set of configuration options to resize images. This allows you to define different resizing rules for multiple directories.
 
@@ -238,7 +233,7 @@ Each collection has the following options.
   </tbody>
 </table>
 
-##### Sizes
+#### 5.2.3 Sizes
 
 Each collection has the option "sizes" which includes a set of configurations for different image sizes that will be generated. Width and height are optional, if at least one of them is set.
 
@@ -295,7 +290,9 @@ Each size has the following options.
   </tbody>
 </table>
 
-### The Command Line Arguments
+---
+
+### 5.3 The Command Line Arguments
 
 The resizing command supports different arguments to remove resized images, recreate all images, etc.
 
@@ -330,7 +327,9 @@ The recreation and removal arguments will force the command to remove all images
 npm run images remove
 ```
 
-## Placeholder Images
+---
+
+## 6. Placeholder Images
 
 All placeholder images used in the `index.html` file are downloaded from [pexels.com](https://www.pexels.com/), and [pixabay.com](https://pixabay.com/). Those are two fantastic collections of free stock photos from photographers around the globe.
 
