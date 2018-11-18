@@ -1,11 +1,12 @@
 {
   "name": "bootstrap4-webpack-boilerplate",
-  "version": "1.0.0",
-  "description": "A basic boilerplate for Bootstrap 4, using webpack and babel.",
+  "version": "1.1.0",
+  "description": "A simple boilerplate using Bootstrap 4, Webpack and Babel.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "images": "node ./bin/images.js"
   },
   "author": "Dominik Hanke",
   "license": "MIT",
@@ -21,11 +22,15 @@
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "exports-loader": "^0.7.0",
+    "mime-types": "^2.1.21",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.10.0",
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
+    "sharp": "^0.21.0",
+    "tiny-glob": "^0.2.3",
+    "trash": "^4.3.0",
     "uglify-js": "^3.4.9",
     "uglifyjs-webpack-plugin": "^2.0.0",
     "webpack": "^4.25.1",
