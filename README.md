@@ -85,9 +85,36 @@ new webpack.ProvidePlugin({
 });
 ```
 
-## 5. Responsive Image Generation
+## 5. Environment Configurations
 
-### 5.1 What is it?
+If you use sensitive information in your code, like API keys or encryption tokens, you should never store those in your code repository. This can could lead to a security issue, especially if the repository is public.
+
+Therefore I included the [dotenv-webpack](https://github.com/mrsteele/dotenv-webpack) plugin in this boilerplate, that enables you to store all your sensitive information in a `.env` file, that is ignored by git.
+
+The `.env.default` file should contain all the variables that your application needs, but without the real data and should contain either empty variables or default values that can be used by everyone. The variables will get replaced during asset compilation so that only those variables are added, that are referenced in your code.
+
+It is a common scheme to use an uppercase syntax for environment variables, as you can see in the example below. Comments inside of .env files start with a hash.
+
+```
+# GOOGLE APIs
+
+GOOGLE_MAPS_API_KEY=vEVmihkWZ2fqedyHQTGCyCc1qu4uaZoYPkOMPMyU
+YOUTUBE_API_KEY=TnJ8u0bYOfVuL9bbFH83T13N05I2XOX2LCJLur8L
+
+# CACHING
+CACHE_ENABLED=false
+CACHE_TIMEOUT=3600
+```
+
+You can test the usage of environment variables by copying the `.env.default` file to a new `.env` file and changing the value of `HELLO`. After re-compiling the assets you should see a message in the developer console, as soon as you visit the demo page.
+
+**Important:**
+
+After each change of the `.env` file you need to reload Webpack, as the environment is only loaded once per runtime. If you've got an active `npm run dev` command, you need to stop and re-run it, for the changes to take effect.
+
+## 6. Responsive Image Generation
+
+### 6.1 What is it?
 
 This boilerplate includes a command to resize images based on a configuration file, to get rid of the hassle to care about the responsive image sizes manually. One of the benefits of this process is that it works on all major operating systems, without the need to do any manual installations.
 
@@ -165,11 +192,11 @@ All files that are listed should get renamed, following the rules you can see in
 
 ---
 
-### 5.2 The Configuration
+### 6.2 The Configuration
 
 The responsive image configuration is saved in the `images.config.js` file, located in the root directory of the project.
 
-#### 5.2.1 Global Settings
+#### 6.2.1 Global Settings
 
 The configuration has some global settings, that you should set to your personal preferences.
 
@@ -190,7 +217,7 @@ The configuration has some global settings, that you should set to your personal
   </tbody>
 </table>
 
-#### 5.2.2 Collections
+#### 6.2.2 Collections
 
 The configuration uses **collections** which include a set of configuration options to resize images. This allows you to define different resizing rules for multiple directories.
 
@@ -233,7 +260,7 @@ Each collection has the following options.
   </tbody>
 </table>
 
-#### 5.2.3 Sizes
+#### 6.2.3 Sizes
 
 Each collection has the option "sizes" which includes a set of configurations for different image sizes that will be generated. Width and height are optional, if at least one of them is set.
 
@@ -292,7 +319,7 @@ Each size has the following options.
 
 ---
 
-### 5.3 The Command Line Arguments
+### 6.3 The Command Line Arguments
 
 The resizing command supports different arguments to remove resized images, recreate all images, etc.
 
@@ -329,7 +356,7 @@ npm run images remove
 
 ---
 
-## 6. Placeholder Images
+## 7. Placeholder Images
 
 All placeholder images used in the `index.html` file are downloaded from [pexels.com](https://www.pexels.com/), and [pixabay.com](https://pixabay.com/). Those are two fantastic collections of free stock photos from photographers around the globe.
 

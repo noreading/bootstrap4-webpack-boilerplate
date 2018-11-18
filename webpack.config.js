@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = (env, argv) => {
   return {
@@ -39,17 +40,14 @@ module.exports = (env, argv) => {
               loader: "postcss-loader",
               options: {
                 ident: "postcss",
-                plugins: [
-                  require("autoprefixer")({ browsers: "last 3 versions" })
-                ]
+                plugins: [require("autoprefixer")({ browsers: "last 3 versions" })]
               }
             },
             {
               loader: "sass-loader",
               options: {
                 sourceMap: true,
-                outputStyle:
-                  argv.mode === "production" ? "compressed" : "expanded"
+                outputStyle: argv.mode === "production" ? "compressed" : "expanded"
               }
             }
           ]
@@ -70,6 +68,9 @@ module.exports = (env, argv) => {
 
     // Define used plugins
     plugins: [
+      new Dotenv({
+        path: "./.env"
+      }),
       new MiniCssExtractPlugin({
         filename: "[name].css",
         chunkFilename: "[id].css"
