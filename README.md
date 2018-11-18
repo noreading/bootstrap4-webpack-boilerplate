@@ -21,13 +21,13 @@ In addition to the basic front-end project setup, I added some cool features lik
 git clone git@github.com:noreading/bootstrap4-webpack-boilerplate.git my-project
 ```
 
-1. Remove the .git directory to add your own CVS later.
+2. Remove the .git directory to add your own CVS later.
 
 ```bash
 rm -rf .git
 ```
 
-1. Update the package.json.
+3. Update the package.json.
 
 ```JSON
    {
@@ -38,13 +38,13 @@ rm -rf .git
    }
 ```
 
-1. Install needed dependencies
+4. Install needed dependencies
 
 ```bash
 npm install
 ```
 
-1. Run the dev command
+5. Run the dev command
 
 ```bash
 npm run dev
