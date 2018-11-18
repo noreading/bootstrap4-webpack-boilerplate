@@ -1,5 +1,7 @@
 # Bootstrap 4 + WebPack 4 = Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/noreading/bootstrap4-webpack-boilerplate.svg)](https://greenkeeper.io/)
+
 This is a basic boilerplate using Bootstrap 4 with SCSS and WebPack, to have an easy and fast setup for new website projects to build upon.
 
 ## Installation
