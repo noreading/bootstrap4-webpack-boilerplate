@@ -91,7 +91,7 @@ class ResponsiveImages {
     const fileCount = files.original.length;
 
     if (fileCount === 0) {
-      return this.log("No images found.");
+      return this.log("No images found.\n");
     }
 
     this.log(`${fileCount} original image ${fileCount < 2 ? "file" : "files"} found.\n`);
