@@ -44,7 +44,9 @@ rm -rf .git
 npm install
 ```
 
-5. Run the dev command
+5. Create an empty `.env` file.
+
+6. Run the dev command
 
 ```bash
 npm run dev
