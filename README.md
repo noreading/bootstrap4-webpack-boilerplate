@@ -16,14 +16,18 @@ In addition to the basic front-end project setup, I added some cool features lik
 ## 2. Quick Start
 
 1. Clone the repository into a new folder for your new project.
+
    ```bash
    git clone git@github.com:noreading/bootstrap4-webpack-boilerplate.git my-project
    ```
 2. Remove the .git directory to add your own CVS later.
+
    ```bash
    rm -rf .git
    ```
+
 3. Update the package.json.
+
    ```JSON
       {
         "name": "my-project",
@@ -32,15 +36,21 @@ In addition to the basic front-end project setup, I added some cool features lik
         "license": "MIT",
       }
    ```
+
 4. Create an empty `.env` file.
+
    ```bash
    touch .env
    ```
+
 5. Install needed dependencies
+
    ```bash
    npm install
    ```
+
 6. Run the dev command
+
    ```bash
    npm run dev
    ```
