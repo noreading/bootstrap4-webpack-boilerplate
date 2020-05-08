@@ -6,7 +6,7 @@
  * Don't modify or delete this file, if you want to use the "npm run images" command.
  */
 
-const glob = require("tiny-glob");
+const glob = require("fast-glob");
 const fs = require("fs");
 const path = require("path");
 const trash = require("trash");
@@ -188,7 +188,7 @@ class ResponsiveImages {
       files = await glob(globPath, {
         dot: false,
         absolute: true,
-        filesOnly: true
+        onlyFiles: true
       });
     } catch (error) {
       switch (error.errno) {
@@ -311,9 +311,7 @@ class ResponsiveImages {
       position: config["position"] || "center"
     };
 
-    await sharp(file)
-      .resize(resizeOptions)
-      .toFile(targetFile);
+    await sharp(file).resize(resizeOptions).toFile(targetFile);
 
     this.stats.created++;
   }
