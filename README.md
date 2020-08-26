@@ -33,23 +33,17 @@ In addition to the basic front-end project setup, I added some cool features lik
         "name": "my-project",
         "description": "A description of my new project",
         "author": "Your Name",
-        "license": "MIT",
+        "license": "MIT"
       }
    ```
 
-4. Create an empty `.env` file.
-
-   ```bash
-   touch .env
-   ```
-
-5. Install needed dependencies
+4. Install needed dependencies
 
    ```bash
    npm install
    ```
 
-6. Run the dev command
+5. Run the dev command
 
    ```bash
    npm run dev
@@ -103,15 +97,15 @@ It is a common scheme to use an uppercase syntax for environment variables, as y
 ```
 # GOOGLE APIs
 
-GOOGLE_MAPS_API_KEY=vEVmihkWZ2fqedyHQTGCyCc1qu4uaZoYPkOMPMyU
-YOUTUBE_API_KEY=TnJ8u0bYOfVuL9bbFH83T13N05I2XOX2LCJLur8L
+GOOGLE_MAPS_API_KEY=vEVmihkWZ2fqedyHQT***************
+YOUTUBE_API_KEY=TnJ8YOfVuL9bbFH83T13N****************
 
 # CACHING
 CACHE_ENABLED=false
 CACHE_TIMEOUT=3600
 ```
 
-You can test the usage of environment variables by copying the `.env.default` file to a new `.env` file and changing the value of `HELLO`. After re-compiling the assets you should see a message in the developer console, as soon as you visit the demo page.
+You can test the usage of environment variables by editing the `.envt` file and changing the value of `HELLO`. After re-compiling the assets you should see a message in the developer console, as soon as you visit the demo page.
 
 **Important:**
 
