@@ -50,8 +50,8 @@ class ResponsiveImages {
 
     for (let i = 0; i < collectionCount; i++) {
       const collection = this.config.collections[i];
-      collection.source = this.trailingSlah(collection.source);
-      collection.sourcePath = this.trailingSlah(path.resolve(collection.source));
+      collection.source = this.trailingSlash(collection.source);
+      collection.sourcePath = this.trailingSlash(path.resolve(collection.source));
 
       await this.runCollection(collection);
     }
@@ -409,7 +409,7 @@ class ResponsiveImages {
    *
    * @param {String} path
    */
-  trailingSlah(path) {
+  trailingSlash(path) {
     if (!/\/$/.test(path)) {
       path += "/";
     }
