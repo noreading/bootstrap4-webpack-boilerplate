@@ -1,8 +1,10 @@
 # Bootstrap 4 + WebPack 4 = Boilerplate
 
+> **New version**: Please check out the new version, including Bootstrap 5, [here](https://github.com/noreading/bootstrap5-webpack-boilerplate).
+
 This is a professional front-end template for building web apps and sites faster, without having to create the basic setup on your own, every time you start a new project.
 
-The template is based on [Bootstrap Framework](http://getbootstrap.com/) version 4 and uses [Webpack](https://webpack.js.org/) as a flexible and modern module bundler. All common features for front-end projects (like SCSS compilation, minifying of Assets, etc.) are included out of the box.
+The template is based on [Bootstrap Framework](https://getbootstrap.com/docs/4.6/) version 4 and uses [Webpack](https://webpack.js.org/) as a flexible and modern module bundler. All common features for front-end projects (like SCSS compilation, minifying of Assets, etc.) are included out of the box.
 
 In addition to the basic front-end project setup, I added some cool features like a configurable image resizing command to make generating responsive images a breeze.
 
