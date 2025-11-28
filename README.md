@@ -1,6 +1,7 @@
 # Bootstrap 4 + WebPack 4 = Boilerplate
 
-> **New version**: Please check out the new version, including Bootstrap 5, [here](https://github.com/noreading/bootstrap5-webpack-boilerplate).
+> [!WARNING]  
+> This repository is archived and not maintained anymore!
 
 This is a professional front-end template for building web apps and sites faster, without having to create the basic setup on your own, every time you start a new project.
 
